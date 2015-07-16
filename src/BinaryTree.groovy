@@ -1,16 +1,16 @@
 class BinaryTree{
 
-    Node root;
+    MNode root;
 
-    def addNode(k,v){
+    def addNode(k, v){
 
-        def newNode = new Node(key: k, value:v)
+        def newNode = new MNode(key: k, value: v)
 
         if(!root){
             root = newNode
         }else{
-            Node currentNode = root
-            Node parent
+            MNode currentNode = root
+            MNode parent
 
             while(true){
                 parent = currentNode
@@ -30,5 +30,14 @@ class BinaryTree{
             }
         }
     }
+
+    def inOrderTraversal(MNode node, boolean silent){
+        if(node){
+            inOrderTraversal(node.leftNode, silent)
+            silent == false ?: println("MNode ${node.dump()}")
+            inOrderTraversal(node.rightNode, silent)
+        }
+    }
+
 
 }
